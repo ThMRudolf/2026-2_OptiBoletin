@@ -1,0 +1,153 @@
+/**
+ * optativas_boletin.css
+ * Estilos para el Generador de Boletín de Optativas — ITAM
+ *
+ * Tipografías usadas (cargadas desde Google Fonts en el HTML):
+ *   - Crimson Pro : cuerpo de texto y botones
+ *   - DM Mono     : etiquetas, códigos y elementos monospace
+ *
+ * Paleta institucional:
+ *   #1F3864  azul oscuro ITAM (fondos de encabezados y botón primario)
+ *   #e8b84b  dorado ITAM       (borde inferior del encabezado)
+ */
+
+/* ── Reset base ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { min-height: 100vh; background: #f5f4f0; font-family: 'Crimson Pro', Georgia, serif; }
+
+/* ── Animaciones ────────────────────────────────────────────────────────── */
+@keyframes spin    { to { transform: rotate(360deg); } }
+@keyframes progbar { 0% { transform: translateX(-100%); } 100% { transform: translateX(260%); } }
+@keyframes fadeUp  { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.fade { animation: fadeUp .3s ease both; }
+
+/* ── Zona de arrastrar y soltar (drop zone) ─────────────────────────────── */
+.drop-z {
+  border: 1.5px dashed #b8b3aa;
+  border-radius: 8px;
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  background: #faf9f7;
+  transition: all .15s;
+  margin-bottom: 16px;
+}
+.drop-z:hover, .drop-z.over { border-color: #1F3864; background: #eef2f8; }
+
+/* ── Checkboxes personalizados ──────────────────────────────────────────── */
+.chk {
+  width: 16px; height: 16px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all .15s;
+  cursor: pointer;
+  user-select: none;
+}
+.chk.on      { background: #1F3864; border-color: #1F3864; }
+.chk.partial { background: #e2e8f0; border-color: #94a3b8; }
+.chk-mark    { color: #fff; font-size: 10px; line-height: 1; }
+.chk-dash    { color: #64748b; font-size: 11px; font-weight: 700; line-height: 1; }
+
+/* ── Filas de departamento y curso ──────────────────────────────────────── */
+.dept-hdr {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 14px;
+  cursor: pointer;
+  transition: background .1s;
+  border-bottom: 1px solid #e2e8f0;
+}
+.dept-hdr:hover { background: #f8fafc; }
+
+.course-row {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 9px 14px;
+  border-bottom: 1px solid #f1f5f9;
+  cursor: pointer;
+  transition: background .1s;
+}
+.course-row:last-child { border-bottom: none; }
+.course-row:hover { background: #f8fafc; }
+
+/* ── Botones ────────────────────────────────────────────────────────────── */
+/* Botón primario — acción principal (azul ITAM) */
+.btn-blue {
+  background: #1F3864; color: #e8ecf4;
+  border: none; padding: 11px 24px;
+  font-family: 'Crimson Pro', serif; font-size: 16px; font-weight: 500;
+  cursor: pointer; border-radius: 6px;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: background .12s;
+}
+.btn-blue:hover:not(:disabled) { background: #2c4f8a; }
+.btn-blue:disabled { opacity: .4; cursor: not-allowed; }
+
+/* Botón de confirmación / descarga (verde) */
+.btn-green {
+  background: #15803d; color: #f0fdf4;
+  border: none; padding: 11px 24px;
+  font-family: 'Crimson Pro', serif; font-size: 16px; font-weight: 500;
+  cursor: pointer; border-radius: 6px;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: background .12s;
+}
+.btn-green:hover:not(:disabled) { background: #166534; }
+.btn-green:disabled { opacity: .4; cursor: not-allowed; }
+
+/* Botón secundario / neutral */
+.btn-sec {
+  background: none; border: 1px solid #c8c4bc; color: #555;
+  padding: 9px 16px;
+  font-family: 'Crimson Pro', serif; font-size: 15px;
+  cursor: pointer; border-radius: 6px;
+  transition: background .1s;
+}
+.btn-sec:hover { background: #eae8e2; }
+
+/* ── Indicadores de progreso y carga ────────────────────────────────────── */
+.spinner {
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+  flex-shrink: 0;
+}
+.prog-bar  { height: 3px; background: #dbeafe; border-radius: 2px; overflow: hidden; margin-top: 5px; }
+.prog-inner { height: 100%; width: 55%; background: #1d4ed8; border-radius: 2px; animation: progbar 1.4s ease-in-out infinite; }
+
+/* ── Barra de búsqueda ──────────────────────────────────────────────────── */
+.search-bar {
+  width: 100%;
+  font-family: 'Crimson Pro', serif; font-size: 15px;
+  border: 1px solid #e2e8f0; border-radius: 6px;
+  padding: 9px 14px;
+  background: #f8fafc; color: #1e293b;
+  outline: none; transition: border .15s;
+}
+.search-bar:focus { border-color: #1F3864; }
+
+/* ── Elementos de etiqueta y código ─────────────────────────────────────── */
+/* Chip de etiqueta de materia seleccionada */
+.tag-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 9px 3px 6px; border-radius: 4px; font-size: 12px;
+}
+
+/* Píldora de código de materia (DM Mono) */
+.pill {
+  font-family: 'DM Mono', monospace; font-size: 10px;
+  background: #f1f5f9; color: #475569;
+  padding: 2px 6px; border-radius: 3px;
+  flex-shrink: 0; margin-top: 2px; white-space: nowrap;
+}
+
+/* Clase de utilidad para texto monospace */
+.mono { font-family: 'DM Mono', monospace; }
+
+/* ── Tarjetas y layout ──────────────────────────────────────────────────── */
+.card {
+  background: #fff; border: 1px solid #e2e8f0;
+  border-radius: 10px; padding: 24px 28px; margin-bottom: 16px;
+}
+
+/* Línea separadora horizontal entre pasos del wizard */
+.step-line { flex: 1; height: 1px; margin: 0 12px; transition: background .3s; }
