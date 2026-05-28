@@ -1,0 +1,29 @@
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Crimson Pro',Georgia,serif;background:#f5f4f0;min-height:100vh;}
+.fade-in{animation:fi .4s ease both;}
+@keyframes fi{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.drop-zone{border:1.5px dashed #b8b3aa;border-radius:6px;padding:28px 20px;text-align:center;cursor:pointer;background:#faf9f7;transition:all .15s;}
+.drop-zone:hover,.drop-zone.over{border-color:#1F3864;background:#eef2f8;}
+.card{background:#fff;border:1px solid #dddad4;border-radius:8px;padding:24px 28px;margin-bottom:16px;}
+.step-num{font-family:'DM Mono',monospace;font-size:11px;color:#1F3864;background:#eef2f8;padding:2px 8px;border-radius:3px;margin-right:10px;}
+.step-title{font-size:17px;font-weight:500;color:#1a1a1a;}
+.code-pill{font-family:'DM Mono',monospace;font-size:11px;background:#ebe9e3;color:#333;padding:2px 7px;border-radius:3px;flex-shrink:0;}
+.dept-hdr{background:#1F3864;color:#d0d9eb;padding:7px 12px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.05em;}
+.course-row{padding:8px 12px;border-bottom:1px solid #eae8e2;display:flex;align-items:flex-start;gap:10px;}
+.course-row:last-child{border-bottom:none;}
+.badge{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;background:#1F3864;color:#d0d9eb;font-family:'DM Mono',monospace;font-size:10px;border-radius:3px;padding:0 5px;}
+.status{display:flex;align-items:center;gap:9px;padding:9px 13px;border-radius:5px;font-size:13px;margin-top:12px;}
+.btn-gen{background:#1F3864;color:#e8ecf4;border:none;padding:12px 28px;font-family:'Crimson Pro',Georgia,serif;font-size:16px;font-weight:500;cursor:pointer;border-radius:4px;transition:background .12s,transform .1s;display:inline-flex;align-items:center;gap:8px;}
+.btn-gen:hover:not(:disabled){background:#2c4f8a;}
+.btn-gen:active:not(:disabled){transform:scale(.98);}
+.btn-gen:disabled{opacity:.4;cursor:not-allowed;}
+.btn-sec{background:none;border:1px solid #c0bbaf;color:#555;padding:10px 18px;font-family:'Crimson Pro',serif;font-size:15px;cursor:pointer;border-radius:4px;transition:background .1s;}
+.btn-sec:hover{background:#eae8e2;}
+.spin{width:15px;height:15px;border:2px solid #8fa4cc;border-top-color:#e8ecf4;border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0;}
+@keyframes spin{to{transform:rotate(360deg)}}
+input[type=text]{font-family:'Crimson Pro',serif;font-size:15px;border:1px solid #c8c4bc;background:#faf9f7;border-radius:4px;padding:8px 11px;width:100%;color:#222;transition:border .1s;}
+input[type=text]:focus{outline:none;border-color:#1F3864;}
+.preview-wrap{border:1px solid #dddad4;border-radius:6px;overflow:hidden;max-height:280px;overflow-y:auto;margin-bottom:20px;}
+.hint{font-size:12px;color:#888;font-family:'DM Mono',monospace;padding:11px 14px;background:#faf9f7;border:1px solid #e0ddd7;border-radius:5px;margin-top:14px;line-height:1.7;}
+code{font-family:'DM Mono',monospace;font-size:11px;background:#ebe9e3;padding:1px 5px;border-radius:2px;}
+.chip{display:inline-flex;align-items:center;gap:6px;background:#f2f4f8;border:1px solid #dde2ec;border-radius:4px;padding:3px 9px 3px 6px;font-size:12px;color:#333;margin:0 4px 6px 0;}
