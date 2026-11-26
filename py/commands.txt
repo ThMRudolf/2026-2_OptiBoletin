@@ -1,0 +1,11 @@
+pip install python-docx openpyxl
+pip install pywin32            # opcional: solo para archivos .doc (requiere MS Word)
+
+python py/docx_to_excel.py                                   # abre selector de carpeta
+python py/docx_to_excel.py -i input -o files/Optativas_Otono_2026.xlsx
+python py/docx_to_excel.py -i input -s Primavera -a 2027    # → Optativas_Primavera_2027.xlsx
+  (-s Primavera | Verano | Otoño, -a año; sin -s/-a se usa el siguiente semestre)
+python py/docx_to_excel.py -i ./carpeta_docx -v   # verbose: muestra cada materia
+
+Columnas: A Departamento · B Código · C Título · D Profesor · E Prerrequisitos · F Descripción
+Campos faltantes quedan en blanco. Archivos "Notas al plan de estudios" se omiten.

@@ -151,3 +151,52 @@ html, body { min-height: 100vh; background: #f5f4f0; font-family: 'Crimson Pro',
 
 /* Línea separadora horizontal entre pasos del wizard */
 .step-line { flex: 1; height: 1px; margin: 0 12px; transition: background .3s; }
+
+/* ── Paso 1: dos fuentes de datos (Word / Excel) ────────────────────────── */
+.src-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.src-panel { min-width: 0; display: flex; flex-direction: column; }
+.src-panel .drop-z { flex: 1; }
+.src-label {
+  font-family: 'DM Mono', monospace; font-size: 11px; color: #64748b;
+  letter-spacing: .04em; text-transform: uppercase; margin-bottom: 8px;
+}
+.src-grid.single { grid-template-columns: 1fr; }
+@media (max-width: 640px) { .src-grid { grid-template-columns: 1fr; } }
+
+/* Selector de periodo (semestre + año) */
+.period-picker { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.period-picker .seg { display: inline-flex; border: 1px solid #d1d5db; border-radius: 6px; overflow: hidden; }
+.period-picker .seg button {
+  background: #fff; border: none; border-right: 1px solid #d1d5db;
+  padding: 6px 14px; font-family: 'Crimson Pro', serif; font-size: 14px; color: #334155; cursor: pointer;
+}
+.period-picker .seg button:last-child { border-right: none; }
+.period-picker .seg button:hover { background: #f1f5f9; }
+.period-picker .seg button.on { background: #1F3864; color: #e8ecf4; font-weight: 500; }
+.period-picker select {
+  font-family: 'DM Mono', monospace; font-size: 13px; color: #1e293b;
+  border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; background: #fff; cursor: pointer;
+}
+
+.link-btn {
+  background: none; border: none; padding: 0; cursor: pointer;
+  color: #1F3864; text-decoration: underline; font: inherit;
+}
+
+/* Caja de estado de carga (Word) */
+.status-box { border-radius: 6px; padding: 9px 13px; margin-bottom: 7px; border: 1px solid #bfdbfe; background: #eff6ff; }
+.status-box.done  { background: #f0fdf4; border-color: #bbf7d0; }
+.status-box.error { background: #fef2f2; border-color: #fecaca; }
+
+/* Reporte por archivo */
+.file-report { margin-top: 8px; font-size: 12px; color: #475569; }
+.file-report summary { cursor: pointer; font-family: 'DM Mono', monospace; font-size: 11px; color: #64748b; }
+.file-report ul { list-style: none; margin-top: 6px; max-height: 220px; overflow-y: auto; }
+.file-report li { display: flex; gap: 8px; padding: 2px 0; align-items: baseline; }
+.file-report .ico   { width: 14px; flex-shrink: 0; text-align: center; font-weight: 600; }
+.file-report .fname { flex: 1; min-width: 0; font-family: 'DM Mono', monospace; font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.file-report .info  { flex-shrink: 0; color: #94a3b8; }
+.file-report li.ok      .ico { color: #15803d; }
+.file-report li.skipped .ico { color: #94a3b8; }
+.file-report li.error   .ico { color: #b91c1c; }
+.file-report li.error  .info { color: #b91c1c; white-space: normal; flex-shrink: 1; }
